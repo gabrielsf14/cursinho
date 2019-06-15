@@ -1,0 +1,30 @@
+<div class="page-header">
+<div class="table-responsive">
+  <div class="roll">
+    <div class="col-md-12">
+      Data: <%= @call_list.date %>
+    </div>
+  </div>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Nome</th>
+            <th>Matricula</th>
+            <th>Lesson</th>
+            <th>Presente?</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @call_list.students) do |student| %>
+            <td><%= student.name %></td>
+            <td><%= student.registration %></td>
+            <td><%= student.lesson.name %></td>
+            <td><%= student.lesson.name %></td>
+            <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
