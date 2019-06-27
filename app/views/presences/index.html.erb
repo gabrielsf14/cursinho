@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_presence_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Presence
+  <% end %>
+  <h1>Listing presences</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Nome</th>
+            <th>Matrícula</th>
+            <th>Presente</th>
+            <th>Data</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @presences) do |presence| %>
+            <td><%= presence.student.name %></td>
+            <td><%= presence.student.registration %></td>
+            <td><%= presence.is_present %></td>
+            <td><%= presence.date %></td>
+            <td><%= link_to 'Show', presence %></td>
+        <td><%= link_to 'Edit', edit_presence_path(presence) %></td>
+        <td><%= link_to 'Destroy', presence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

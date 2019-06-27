@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_present: false
+  date: 2019-06-26
+  student: one
+
+two:
+  is_present: false
+  date: 2019-06-26
+  student: two
