@@ -1,29 +1,29 @@
 <div class="page-header">
   <%= link_to students_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Voltar
   <% end %>
   <%= link_to edit_student_path(@student), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    Editar
   <% end %>
-  <h1>Show student</h1>
+  <h1>Mostrar aluno</h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Name:</dt>
+  <dt>Nome:</dt>
   <dd><%= @student.name %></dd>
 
-  <dt>Registration:</dt>
+  <dt>Matrícula:</dt>
   <dd><%= @student.registration %></dd>
 
   <dt>Cpf:</dt>
   <dd><%= @student.cpf %></dd>
 
-  <dt>Date of birth:</dt>
+  <dt>Data de nascimento:</dt>
   <dd><%= @student.date_of_birth %></dd>
 
-  <dt>Lesson:</dt>
+  <dt>Turma:</dt>
   <dd><%= @student.lesson.name %></dd>
 
 </dl>

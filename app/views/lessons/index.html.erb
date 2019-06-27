@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lessons</h1>
+<h1>Turmas</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nome</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,9 +14,9 @@
     <% @lessons.each do |lesson| %>
       <tr>
         <td><%= lesson.name %></td>
-        <td><%= link_to 'Show', lesson %></td>
-        <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
-        <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '&nbsp;&nbsp;&nbsp;&nbsp;Mostrar'.html_safe, lesson %></td>
+        <td><%= link_to '&nbsp;&nbsp;&nbsp;&nbsp;Editar'.html_safe, edit_lesson_path(lesson) %></td>
+        <td><%= link_to '&nbsp;&nbsp;&nbsp;&nbsp;Deletar'.html_safe, lesson, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Lesson', new_lesson_path %>
+<%= link_to 'Criar nova turma', new_lesson_path %>
