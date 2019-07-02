@@ -1,5 +1,6 @@
 class PresencesController < ApplicationController
   before_action :set_presence, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /presences
   # GET /presences.json
@@ -60,6 +61,12 @@ class PresencesController < ApplicationController
       format.html { redirect_to presences_url, notice: 'Presence was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def register_presence 
+    student = Student.find_by(registration: params[:registration])
+    @presence = Presence.new({ is_present: true, date: Date.today, student_id: student.id })
+    @presence.save
   end
 
   private
