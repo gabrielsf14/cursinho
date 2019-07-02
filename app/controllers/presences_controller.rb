@@ -4,7 +4,8 @@ class PresencesController < ApplicationController
   # GET /presences
   # GET /presences.json
   def index
-    @presences = Presence.all
+    @presences = Presence.where(date: params[:data])
+    @students = Student.all
   end
 
   # GET /presences/1

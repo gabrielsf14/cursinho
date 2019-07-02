@@ -1,10 +1,19 @@
+
 <div class="page-header">
   <%= link_to new_presence_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Presence
+    Nova presença
   <% end %>
-  <h1>Listing presences</h1>
+  <h1>Lista de presença</h1>
 </div>
+
+<form action="/presences">
+  <%= label_tag("Data:") %>
+  <input id="date" type="date" name="data" value="<%= params[:data] %>"/>
+  <%= submit_tag "Buscar", class: "btn btn-primary" %>
+</form>
+
+</br></br>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
@@ -12,23 +21,15 @@
       <tr>
             <th>Nome</th>
             <th>Matrícula</th>
-            <th>Presente</th>
-            <th>Data</th>
-            <th></th>
-        <th></th>
-        <th></th>
+            <th>Presença</th>
       </tr>
     </thead>
 
-    <tbody>
-      <%= content_tag_for(:tr, @presences) do |presence| %>
-            <td><%= presence.student.name %></td>
-            <td><%= presence.student.registration %></td>
-            <td><%= presence.is_present %></td>
-            <td><%= presence.date %></td>
-            <td><%= link_to 'Show', presence %></td>
-        <td><%= link_to 'Edit', edit_presence_path(presence) %></td>
-        <td><%= link_to 'Destroy', presence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <tbody> 
+      <%= content_tag_for(:tr, @students) do |student| %>
+            <td><%= student.name %></td>
+            <td><%= student.registration %></td>
+            <td><%= student.is_present(@presences)  %></td>
       <% end %>
     </tbody>
   </table>

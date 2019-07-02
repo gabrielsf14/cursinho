@@ -31,9 +31,9 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="presences">Lista de chamada</a></li>
-          <li><a href="students">Alunos</a></li>
-          <li><a href="lessons">Turmas</a></li>
+          <li><%= link_to 'Lista de chamada', "/presences?data=#{Date.today}" %></li>
+          <li><a href="/students">Alunos</a></li>
+          <li><a href="/lessons">Turmas</a></li>
         </ul>
       </div>
     </div>

@@ -1,23 +1,23 @@
 <div class="page-header">
   <%= link_to presences_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Voltar
   <% end %>
   <%= link_to edit_presence_path(@presence), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    Editar
   <% end %>
-  <h1>Show presence</h1>
+  <h1>Mostrar presença</h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Is present:</dt>
-  <dd><%= @presence.is_present %></dd>
+  <dt>Presente:</dt>
+  <dd><%= @presence.presence_status %></dd>
 
-  <dt>Date:</dt>
+  <dt>Data:</dt>
   <dd><%= @presence.date %></dd>
 
-  <dt>Student:</dt>
+  <dt>Aluno:</dt>
   <dd><%= @presence.student.name %></dd>
 
 </dl>
