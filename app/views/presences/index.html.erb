@@ -21,6 +21,7 @@
       <tr>
             <th>Nome</th>
             <th>Matrícula</th>
+            <th>Turma</th>
             <th>Presença</th>
       </tr>
     </thead>
@@ -29,6 +30,7 @@
       <%= content_tag_for(:tr, @students) do |student| %>
             <td><%= student.name %></td>
             <td><%= student.registration %></td>
+            <td><%= student.lesson.name %></td>
             <td><%= student.is_present(@presences)  %></td>
       <% end %>
     </tbody>
