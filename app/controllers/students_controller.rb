@@ -61,6 +61,11 @@ class StudentsController < ApplicationController
     end
   end
 
+  def qr_codes
+    @students = Student.all
+    render :qrcodes
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
