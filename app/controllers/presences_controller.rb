@@ -64,9 +64,15 @@ class PresencesController < ApplicationController
   end
 
   def register_presence 
-    student = Student.find_by(registration: params[:registration])
-    @presence = Presence.new({ is_present: true, date: Date.today, student_id: student.id })
-    @presence.save
+    admin = Admin.find_by_username(params[:username])
+    return head :not_found unless admin.present?
+    if admin.password == params[:password]
+      student = Student.find_by(registration: params[:registration])
+      @presence = Presence.new({ is_present: true, date: Date.today, student_id: student.id })
+      @presence.save
+    else
+      head :unauthorized
+    end  
   end
 
   private

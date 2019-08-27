@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_27_021750) do
+ActiveRecord::Schema.define(version: 2019_08_27_230053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "call_lists", force: :cascade do |t|
     t.date "date"
@@ -36,6 +43,13 @@ ActiveRecord::Schema.define(version: 2019_06_27_021750) do
     t.index ["student_id"], name: "index_presences_on_student_id"
   end
 
+  create_table "qr_codes", force: :cascade do |t|
+    t.bigint "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_qr_codes_on_student_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "registration"
@@ -49,5 +63,6 @@ ActiveRecord::Schema.define(version: 2019_06_27_021750) do
 
   add_foreign_key "call_lists", "lessons"
   add_foreign_key "presences", "students"
+  add_foreign_key "qr_codes", "students"
   add_foreign_key "students", "lessons"
 end
